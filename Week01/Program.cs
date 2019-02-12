@@ -6,7 +6,10 @@ namespace Week01
     {
         static void Main(string[] args)
         {
-            // say Hello World here
+            Console.WriteLine("Hello world");
+
+            string userName = "Nick";
+            int userAge = 15;
             
         }
     }
