@@ -19,8 +19,12 @@ namespace Week01
             Console.WriteLine(String.Format("I am {0} yrs old and own {1} pet", userAge, numberOfPets));
             
             Console.WriteLine($"i went to school at {schoolAttended}!");
-            
-            
+
+            Random rng = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(rng.Next(0, 25));
+            }
         }
     }
 }
