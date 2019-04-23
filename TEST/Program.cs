@@ -7,71 +7,156 @@ namespace TEST
     {
         static void Main(string[] args)
         {
-            /*Console.WriteLine("Do you want to play a game?");
-            string ans = Console.ReadLine();
-                if (ans == "yes" || ans == "Yes" || ans == "YES" || ans == "sure" || ans == "ye") {
-                    Console.WriteLine("Good..");
-                } else {
-                    Console.WriteLine("Too bad!");
-                }
-                while (true) {
-                    Console.WriteLine("Pick a number, one through three..");
-                    int num = Convert.ToInt32(Console.ReadLine());
-                        if (num == 1) {
-                            Console.WriteLine("1");
-                            break;
-                        } else if (num == 2) {
-                            Console.WriteLine("2");
-                            break;
-                        } else if (num == 3) {
-                            Console.WriteLine("3");
-                            break;
-                        } else {
-                            Console.WriteLine("Pick a number between one through three..");
-                        }
-                }
-            if (num == 1) {
-                Console.WriteLine("Lets play Tic-Tac-Toe");
-            } else if (num == 2) {
-                Console.WriteLine("Try to guess a number I am thinking of");
-            } else if (num == 3) {
-
-            }*/
             List<string> listList = new List<string>();
-                listList.Add(" ");
-                listList.Add(" ");
-                listList.Add(" ");
-                listList.Add(" ");
-                listList.Add(" ");
-                listList.Add(" ");
-                listList.Add(" ");
-                listList.Add(" ");
-                listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            listList.Add(" ");
+            bool returnValue = false;
 
-                for(int i = 0; i <= 8; i++) {
-                    LISTLIST(listList);
-                    viewList(listList);
-                }
+            while (!returnValue)
+            {
+                viewList(listList);
+                LISTLIST(listList);
+                returnValue = win(listList);
+            }
+            viewList(listList);
         }
-        public static void LISTLIST(List<string> listList) {
-            Console.WriteLine("Give a number 1-9");
-            int player = Convert.ToInt32(Console.ReadLine());
-            listList[player-1] = "X";
-
-            Random rnd = new Random();
-            int guesser  = rnd.Next(1, 10);
-
-                while (player == guesser) {
-                    guesser  = rnd.Next(1, 10);
+        public static void LISTLIST(List<string> listList)
+        {
+            while (true)
+            {
+                while (true)
+                {
+                    Console.WriteLine("Give a number 1-9");
+                    int player = Convert.ToInt32(Console.ReadLine());
+                    if (listList[player - 1] == " ")
+                    {
+                        listList[player - 1] = "X";
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Choose a differ spot..");
+                    }
                 }
 
-            listList[guesser-1] = "O";
-
+                while (true)
+                {
+                    Random rnd = new Random();
+                    int guesser = rnd.Next(1, 10);
+                    if (listList[guesser - 1] == " ")
+                    {
+                        listList[guesser - 1] = "O";
+                        break;
+                    }
+                    else { }
+                }
+                break;
+            }
         }
-        public static void viewList(List<string> listList) {
-            Console.WriteLine(listList[0] + "_|_" + listList[1] + "_|_" + listList[2] );
-            Console.WriteLine(listList[3] + "_|_" + listList[4] + "_|_" + listList[5] );
-            Console.WriteLine(listList[6] + " | " + listList[7] + " | " + listList[8] );
+        public static void viewList(List<string> listList)
+        {
+            Console.WriteLine(listList[6] + "_|_" + listList[7] + "_|_" + listList[8]);
+            Console.WriteLine(listList[3] + "_|_" + listList[4] + "_|_" + listList[5]);
+            Console.WriteLine(listList[0] + " | " + listList[1] + " | " + listList[2]);
+        }
+        public static bool win(List<string> listList)
+        {
+            if ((listList[0] == "X") && (listList[1] == "X") && (listList[2] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[3] == "X") && (listList[4] == "X") && (listList[5] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[6] == "X") && (listList[7] == "X") && (listList[8] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[0] == "X") && (listList[3] == "X") && (listList[6] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[1] == "X") && (listList[4] == "X") && (listList[7] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[2] == "X") && (listList[5] == "X") && (listList[8] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[0] == "X") && (listList[4] == "X") && (listList[8] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[2] == "X") && (listList[4] == "X") && (listList[6] == "X"))
+                    {
+                        Console.WriteLine("X wins");
+                        return true;
+                    }
+                    else if ((listList[0] == "O") && (listList[1] == "O") && (listList[2] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[3] == "O") && (listList[4] == "O") && (listList[5] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[6] == "O") && (listList[7] == "O") && (listList[8] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[0] == "O") && (listList[3] == "O") && (listList[6] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[1] == "O") && (listList[4] == "O") && (listList[7] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[2] == "O") && (listList[5] == "O") && (listList[8] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[2] == "O") && (listList[5] == "O") && (listList[8] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[2] == "O") && (listList[5] == "O") && (listList[8] == "O"))
+                    {
+                        Console.WriteLine("O wins");
+                        return true;
+                    }
+                    else if ((listList[0] != " ") && (listList[1] != " ") && (listList[2] != " ") && (listList[3] != " ") && (listList[4] != " ") && (listList[5] != " ") && (listList[6] != " ") && (listList[7] != " ") && (listList[8] != " "))
+                    {
+                        Console.WriteLine("Cats game");
+                        return true;
+                    }
+                    else 
+                    {
+                        return false;
+                    }
         }
 
     }
