@@ -26,6 +26,7 @@ namespace TEST
                 returnValue = win(listList);
             }
             viewList(listList);
+            returnValue = win(listList);
         }
         public static void LISTLIST(List<string> listList)
         {
@@ -155,6 +156,7 @@ namespace TEST
                     }
                     else 
                     {
+                        Console.WriteLine("Cats game");
                         return false;
                     }
         }
